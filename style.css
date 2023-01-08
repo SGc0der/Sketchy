@@ -1,0 +1,56 @@
+#show_sketch{
+    float: right;
+    font-family: 'Rowdies', cursive;
+    border: 2px black solid;
+}
+.header{
+    float: inline-end;
+    font-family: 'Dancing Script', cursive;
+    font-size: 70;
+    margin-right: 40px;
+}
+#sketch_to_draw{
+    font-size: 23px;
+}
+.labels{
+    font-family: 'Rubik Bubbles', cursive;
+    margin-right: 200px;
+}
+#confidence{
+    color: red;
+    font-size: 35px;
+    font-family: 'Rubik Bubbles', cursive;
+}
+#score{
+    font-family: 'Pacifico', cursive;
+    margin-left: 150px;
+    float: left;
+}
+#timer{
+    font-family: 'Kanit', sans-serif;
+    float: right;
+    margin-right: 150px;
+}
+.modal-header{
+    color: aquamarine;
+    background-color: chartreuse;
+    font-family: 'Inspiration', cursive;
+}
+.modal-title{
+    font-size: 50px;
+    border: 3px red dashed;
+    background-color: cornflowerblue;
+}
+.modal-body{
+    border: 30px rgb(48, 44, 44) ridge;
+}
+#myBody{
+    background: linear-gradient(yellow , darkorange );
+}
+/*.close:hover{
+    width: 80px;
+    height: 80px;
+}*/
+.close{
+    margin-right: 10px;
+}
