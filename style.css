@@ -8,6 +8,7 @@
     font-family: 'Dancing Script', cursive;
     font-size: 70;
     margin-right: 40px;
+    background: linear-gradient( to bottom right, #34c0eb 0%, #68f516 100%);
 }
 #sketch_to_draw{
     font-size: 23px;
@@ -53,4 +54,16 @@
 }*/
 .close{
     margin-right: 10px;
+}
+canvas{
+    border:5px solid white;
+    border-radius: 20px;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    margin-top: 150px;
+}
+@keyframes example{
+    from{box-shadow: 1px 1px 100px black;}
+    to{box-shadow: 1px 1px 100px pink;}
 }

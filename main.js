@@ -7,4 +7,43 @@ timer_counter = 0;
 score = 0;
 time_check  = "";
 drawn_sketch = "";
-answer = "";
+answer_holder = "";
+sketch = element_of_array;
+function draw() {
+
+}
+function check_sketch() {
+    timer_counter++;
+    document.getElementById("timer").innerHTML = "Timer: " + timer_counter;
+    console.log(timer_counter);
+    if (timer_counter>300){
+        timer_counter = 0;
+        time_check="completed";
+    }
+    if(time_check=="completed" || answer_holder=="set")
+    {
+        time_check="";
+        answer_holder= "";
+        update_canvas();
+    }
+}
+function update_canvas() {
+    background("white");
+    random_number = Math.floor((Math.random()*quick_draw_data_set.length)+1);
+    element_of_array = quick_draw_data_set[random_number];
+    console.log(element_of_array);
+    document.getElementById("sketch_to_draw").innerHTML = "Selected Sketch : " + element_of_array;
+}
+function setup() {
+    canvas = createCanvas(280, 280);
+    background("white");
+    canvas.center();
+}
+function draw() {
+    check_sketch();
+    if(drawn_sketch == sketch){
+        answer_holder = "set";
+        score += 1;
+        document.getElementById("score").innerHTML = "Score: " + score;
+    }
+}
