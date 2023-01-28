@@ -9,8 +9,8 @@ time_check  = "";
 drawn_sketch = "";
 answer_holder = "";
 sketch = element_of_array;
-function draw() {
-
+function preload() {
+    classifier = ml5.imageClassifier("DoodleNet");
 }
 function check_sketch() {
     timer_counter++;
@@ -38,6 +38,7 @@ function setup() {
     canvas = createCanvas(280, 280);
     background("white");
     canvas.center();
+    canvas.mouseReleased(classifyCanvas);
 }
 function draw() {
     check_sketch();
@@ -46,4 +47,22 @@ function draw() {
         score += 1;
         document.getElementById("score").innerHTML = "Score: " + score;
     }
+    strokeWeight(12);
+    stroke(0);
+    if(mouseIsPressed){
+        line(pmouseX, pmouseY, mouseX, mouseY);
+    }
+}
+function classifyCanvas() {
+    classifier.classify(canvas, gotResult);
+}
+function gotResult(error, results) 
+{
+    if(error){
+        console.error(error);
+    }
+    console.log(results);
+    drawn_sketch = results[0].label;
+    document.getElementById("sketch_drawn").innerHTML = "Drawn Sketch Guess: "+drawn_sketch;
+    document.getElementById("confidence").innerHTML = Math.round(results[0].confidence *100) +"%" ;
 }
